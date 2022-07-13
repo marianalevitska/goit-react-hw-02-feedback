@@ -24,6 +24,8 @@ class Statistics extends Component {
                         <li className={stl.stat_item}>Good: {this.state.good}</li>
                         <li className={stl.stat_item}>Neutral: {this.state.neutral}</li>
                         <li className={stl.stat_item}>Bad: {this.state.bad}</li>
+                        <li className={stl.stat_item}>Total: {this.state.good + this.state.neutral + this.state.bad}</li>
+                        <li className={stl.stat_item}>Positive feedback: {((this.state.good) / (this.state.good + this.state.neutral + this.state.bad)) * 100}%</li>
                     </ul>
                 </div>
             </div>
