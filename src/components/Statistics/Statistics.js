@@ -7,7 +7,15 @@ class Statistics extends Component {
         neutral: 0,
         bad: 0
     }
+    // PositiveFeedback() {
+    //     console.log(this.state);
+    //     const number = ((this.state.good) / (this.state.good + this.state.neutral + this.state.bad)) * 100;
+    //     return number;
+    // }
+
     render() {
+        const positiv = this.PositiveFeedback;
+        // console.log(positiv);
         return (
             <div className={stl.stat}>
                 <div className={stl.feedback_btn_block}>
@@ -25,12 +33,13 @@ class Statistics extends Component {
                         <li className={stl.stat_item}>Neutral: {this.state.neutral}</li>
                         <li className={stl.stat_item}>Bad: {this.state.bad}</li>
                         <li className={stl.stat_item}>Total: {this.state.good + this.state.neutral + this.state.bad}</li>
-                        <li className={stl.stat_item}>Positive feedback: {((this.state.good) / (this.state.good + this.state.neutral + this.state.bad)) * 100}%</li>
+                        <li className={stl.stat_item}>Positive feedback: {/*positiv*/ ((this.state.good) / (this.state.good + this.state.neutral + this.state.bad)) * 100}%</li>
                     </ul>
                 </div>
             </div>
         );
     };
+
 };
 
 
