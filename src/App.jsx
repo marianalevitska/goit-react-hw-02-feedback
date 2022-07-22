@@ -1,8 +1,9 @@
+import { Component } from 'react';
 
 import Statistics from './components/Statistics';
 import FeedbackOption from './components/FeedbackOption';
 import Section from './shared/Section';
-import { Component } from 'react';
+import Notification from './shared/Notification';
 
 const options = ['good', 'neutral', 'bad'];
 
@@ -12,21 +13,6 @@ export class App extends Component {
     neutral: 0,
     bad: 0
   }
-  // GoodClick = ({ item }) => {
-  //   this.setState(prevState => ({
-  //     [item]: prevState[item] + 1,
-  //   }));
-  // };
-  // BadClick = ({ item }) => {
-  //   this.setState(prevState => ({
-  //     [item]: prevState[item] + 1,
-  //   }));
-  // }
-  // NeuClick = ({ item }) => {
-  //   this.setState(prevState => ({
-  //     [item]: prevState[item] + 1,
-  //   }));
-  // }
 
   handleClick = (item) => {
 
@@ -63,8 +49,11 @@ export class App extends Component {
           />
         </Section>
         <Section title={'Statistics'}>
-          <Statistics title='Statistics' good={good} neutral={neutral} bad={bad} total={total} positivePercentage={positiveFb} />
+          {total ?
+            <Statistics title='Statistics' good={good} neutral={neutral} bad={bad} total={total} positivePercentage={positiveFb} /> :
+            <Notification message={`There's no feedback`} />}
         </Section>
+
       </>
     );
   }
