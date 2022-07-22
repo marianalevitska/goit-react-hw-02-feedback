@@ -10,6 +10,21 @@ export class App extends Component {
     neutral: 0,
     bad: 0
   }
+  GoodClick = ({ good }) => {
+    this.setState(prevState => ({
+      [good]: prevState[good] + 1,
+    }));
+  };
+  BadClick = ({ bad }) => {
+    this.setState(prevState => ({
+      [bad]: prevState[bad] + 1,
+    }));
+  }
+  NeuClick = ({ neutal }) => {
+    this.setState(prevState => ({
+      [neutal]: prevState[neutal] + 1,
+    }));
+  }
   PositiveFeedback() {
     console.log(this.state);
     const number = ((this.state.good) / (this.state.good + this.state.neutral + this.state.bad)) * 100;
@@ -27,7 +42,7 @@ export class App extends Component {
     const { good, neutral, bad } = this.state;
     return (
       <div>
-        <Statistics title='Statistics' good={good} neutral={neutral} bad={bad} total={total} positivePercentage={positiveFeedback} />
+        <Statistics title='Statistics' good={good} neutral={neutral} bad={bad} total={total} positivePercentage={positiveFeedback} onGoodFb={this.GoodClick} onBadFb={this.BadClick} onNeuFb={this.NeuClick} />
       </div >
     );
   }

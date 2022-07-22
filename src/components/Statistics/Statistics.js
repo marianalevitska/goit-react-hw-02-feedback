@@ -2,16 +2,16 @@
 import PropTypes from 'prop-types';
 import stl from './Statistics.module.css';
 
-function Statistics({ good, neutral, bad, total, positiveFeedback }) {
+function Statistics({ good, neutral, bad, total, positiveFeedback, onGoodFb, onBadFb, onNeuFb }) {
 
     return (
         <div className={stl.stat}>
             <div className={stl.feedback_btn_block}>
                 <h1 className={stl.title}>Please, leave feedback</h1>
                 <ul className={stl.feedback_btn_list}>
-                    <li className={stl.feedback_btn}><button type='button' onClick={() => this.setState(state => ({ good: state.good + 1 }))}>Good</button></li>
-                    <li className={stl.feedback_btn}><button type='button' onClick={() => this.setState(state => ({ neutral: state.neutral + 1 }))}>Neutral</button></li>
-                    <li className={stl.feedback_btn}><button type='button' onClick={() => this.setState(state => ({ bad: state.bad + 1 }))}>Bad</button></li>
+                    <li className={stl.feedback_btn}><button type='button' onClick={() => onGoodFb(good)}>Good</button></li>
+                    <li className={stl.feedback_btn}><button type='button' onClick={() => onNeuFb(neutral)}>Neutral</button></li>
+                    <li className={stl.feedback_btn}><button type='button' onClick={() => onBadFb(bad)}>Bad</button></li>
                 </ul>
             </div>
             <div className={stl.stat_block}>
