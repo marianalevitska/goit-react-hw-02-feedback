@@ -10,19 +10,19 @@ export class App extends Component {
     neutral: 0,
     bad: 0
   }
-  GoodClick = ({ good }) => {
+  GoodClick = ({ item }) => {
     this.setState(prevState => ({
-      [good]: prevState[good] + 1,
+      [item]: prevState[item] + 1,
     }));
   };
-  BadClick = ({ bad }) => {
+  BadClick = ({ item }) => {
     this.setState(prevState => ({
-      [bad]: prevState[bad] + 1,
+      [item]: prevState[item] + 1,
     }));
   }
-  NeuClick = ({ neutal }) => {
+  NeuClick = ({ item }) => {
     this.setState(prevState => ({
-      [neutal]: prevState[neutal] + 1,
+      [item]: prevState[item] + 1,
     }));
   }
   PositiveFeedback() {
