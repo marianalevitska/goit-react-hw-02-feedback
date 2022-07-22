@@ -1,8 +1,9 @@
-// import Buttons from './components/Buttons/Buttons';
-import Statistics from './components/Statistics/Statistics';
+
+import Statistics from './components/Statistics';
+import FeedbackOption from './components/FeedbackOption';
 import { Component } from 'react';
 
-// const options = ['good', 'neutral', 'bad'];
+const options = ['good', 'neutral', 'bad'];
 
 export class App extends Component {
   state = {
@@ -10,40 +11,57 @@ export class App extends Component {
     neutral: 0,
     bad: 0
   }
-  GoodClick = ({ item }) => {
+  // GoodClick = ({ item }) => {
+  //   this.setState(prevState => ({
+  //     [item]: prevState[item] + 1,
+  //   }));
+  // };
+  // BadClick = ({ item }) => {
+  //   this.setState(prevState => ({
+  //     [item]: prevState[item] + 1,
+  //   }));
+  // }
+  // NeuClick = ({ item }) => {
+  //   this.setState(prevState => ({
+  //     [item]: prevState[item] + 1,
+  //   }));
+  // }
+
+  handleClick = (item) => {
+
     this.setState(prevState => ({
       [item]: prevState[item] + 1,
     }));
-  };
-  BadClick = ({ item }) => {
-    this.setState(prevState => ({
-      [item]: prevState[item] + 1,
-    }));
-  }
-  NeuClick = ({ item }) => {
-    this.setState(prevState => ({
-      [item]: prevState[item] + 1,
-    }));
-  }
-  PositiveFeedback() {
-    console.log(this.state);
-    const number = ((this.state.good) / (this.state.good + this.state.neutral + this.state.bad)) * 100;
-    return number;
   }
 
-  TotalFeedback() {
+
+
+  totalFeedback() {
     const n = this.state.good + this.state.neutral + this.state.bad;
     return n;
   }
+
+  positiveFeedback() {
+    const { good } = this.state;
+    const total = this.totalFeedback();
+    const number = Math.ceil((good / total) * 100);
+    return number;
+  }
+
   render() {
-    const percent = this.PositiveFeedback();
-    const total = this.TotalFeedback();
-    const positiveFeedback = percent ? percent : 0;
+    const percent = this.positiveFeedback();
+    const total = this.totalFeedback();
+    const positiveFb = percent ? percent : 0;
     const { good, neutral, bad } = this.state;
     return (
-      <div>
-        <Statistics title='Statistics' good={good} neutral={neutral} bad={bad} total={total} positivePercentage={positiveFeedback} onGoodFb={this.GoodClick} onBadFb={this.BadClick} onNeuFb={this.NeuClick} />
-      </div >
+      <>
+        <div>
+          <FeedbackOption options={options} onLeaveFeedback={this.handleClick} />
+        </div>
+        <div>
+          <Statistics title='Statistics' good={good} neutral={neutral} bad={bad} total={total} positivePercentage={positiveFb} />
+        </div >
+      </>
     );
   }
 };
