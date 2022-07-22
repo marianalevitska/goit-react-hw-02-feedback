@@ -1,6 +1,7 @@
 
 import Statistics from './components/Statistics';
 import FeedbackOption from './components/FeedbackOption';
+import Section from './shared/Section';
 import { Component } from 'react';
 
 const options = ['good', 'neutral', 'bad'];
@@ -55,12 +56,15 @@ export class App extends Component {
     const { good, neutral, bad } = this.state;
     return (
       <>
-        <div>
-          <FeedbackOption options={options} onLeaveFeedback={this.handleClick} />
-        </div>
-        <div>
+        <Section title={'Please Live Feedback'}>
+          <FeedbackOption
+            options={options}
+            onLeaveFeedback={this.handleClick}
+          />
+        </Section>
+        <Section title={'Statistics'}>
           <Statistics title='Statistics' good={good} neutral={neutral} bad={bad} total={total} positivePercentage={positiveFb} />
-        </div >
+        </Section>
       </>
     );
   }

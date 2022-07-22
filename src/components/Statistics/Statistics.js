@@ -8,7 +8,7 @@ function Statistics({ good, neutral, bad, total, positivePercentage }) {
         <div className={stl.stat}>
 
             <div className={stl.stat_block}>
-                <h1 className={stl.stat_title}>Statistics</h1>
+
                 <ul className={stl.stat_list}>
                     <li className={stl.stat_item}>Good: {good}</li>
                     <li className={stl.stat_item}>Neutral: {neutral}</li>
