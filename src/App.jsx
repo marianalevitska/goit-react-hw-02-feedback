@@ -24,7 +24,8 @@ export class App extends Component {
 
 
   totalFeedback() {
-    const n = this.state.good + this.state.neutral + this.state.bad;
+    const { good, neutral, bad } = this.state;
+    const n = good + neutral + bad;
     return n;
   }
 
