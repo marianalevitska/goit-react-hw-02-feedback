@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-// import FeedbackOption from '.'
+
 import stl from './feedbackOption.module.css'
 
 function FeedbackOption({ options, onLeaveFeedback }) {
