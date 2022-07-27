@@ -16,14 +16,6 @@ function FeedbackOption({ options, onLeaveFeedback }) {
         <div className={stl.feedback_btn_block}>
             {elements}
         </div>
-        // <div className={stl.feedback_btn_block}>
-        //     <h1 className={stl.title}>Please, leave feedback</h1>
-        //     <ul className={stl.feedback_btn_list}>
-        //         <li className={stl.feedback_btn}><button type='button' onClick={() => onGoodFb(good)}>Good</button></li>
-        //         <li className={stl.feedback_btn}><button type='button' onClick={() => onNeuFb(neutral)}>Neutral</button></li>
-        //         <li className={stl.feedback_btn}><button type='button' onClick={() => onBadFb(bad)}>Bad</button></li>
-        //     </ul>
-        // </div>
 
     )
 };
